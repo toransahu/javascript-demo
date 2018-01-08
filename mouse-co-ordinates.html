@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mouse Co Ordinates</title>
+</head>
+<body>
+
+    Mouse X: <input id="mouseX" type="text"> </br></br>
+    Mouse Y: <input id="mouseY" type="text"> </br></br>
+
+    <button id="clearInputs">Clear All Inputs</button>    
+    <script type="text/javascript">
+        document.body.onmousemove = function (e) {
+            e = e || window.event;
+            var pageX = e.pageX;
+            var pageY = e.pageY;
+
+            if(pageX === undefined){
+                pageX = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
+
+                pageY = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
+            }
+
+            document.getElementById("mouseX").value = pageX;
+            document.getElementById("mouseY").value = pageY;
+        }
+
+         document.getElementById("clearInputs").onclick = function(event){
+            var inputElements = document.getElementsByTagName("input");
+            for(var i = 0; i < inputElements.length; i++){
+                if(inputElements[i].type == "text"){
+                    inputElements[i].value = "";
+                }
+            }
+        }
+       
+
+    </script>
+
+</body>
+</html>
