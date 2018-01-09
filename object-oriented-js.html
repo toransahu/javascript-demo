@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OOPs in JS</title>
+  </head>
+  <body>
+    <script>
+
+    // Creating an object
+      var cust1 = {
+        name: "Toran Sahu",
+        age: 26,
+        phone: "8602431733",
+        address: "Pune",
+        balance: 1000.00,
+        addToBalance: function(amtCredited){
+          this.balance += amtCredited;
+        },
+        deductInBalance: function(amtDebited){
+          this.balance -= amtDebited;
+        }
+      };
+
+      document.writeln("Customer Name: ", cust1.name, "<br/>");
+      document.writeln("Customer Address: ", cust1.address, "<br/>");
+      cust1.address = "Raipur";
+      document.writeln("Customer's New Address: ", cust1.address, "<br/>");
+      //add proeprty/attribute
+      cust1.country = "India"
+      document.writeln("Customer Country: ", cust1.country, "<br/>");
+      //delete property/attribute
+      delete cust1.country;
+
+      document.writeln("Customer ", cust1.name, " has following properties:", "<br/>");
+      for(var prop in cust1){
+        // to check whether it's objects own property or inherited one
+        if(cust1.hasOwnProperty(prop)){
+            document.writeln(prop, "<br/>");
+        }
+      }
+      document.writeln("</br>");
+      // check if property exists for the object or not
+      document.writeln("name in cust1: ", "name" in cust1,"</br>");
+
+      document.writeln("</br>");
+
+      function getInfo(cust){
+        for(var prop in cust){
+          if(cust.hasOwnProperty(prop) ){
+
+            // access value by providing key to object
+              document.writeln(prop,": ",cust[prop], ", of type: ",typeof cust[prop], "<br/>");
+          }
+        }
+      };
+      document.writeln(getInfo(cust1));
+
+      // Creating a Class object
+      function Customer(name, age, address, phone, balance){
+        this.name = name;
+        this.age = age;
+        this.address = address;
+        this.phone = phone;
+        this.balance = balance;
+        this.addToBalance = function(amtCredited){
+          this.balance += amtCredited;
+        };
+        this.deductInBalance = function(amtDebited){
+          this.balance -= amtDebited;
+        };
+      };
+      document.writeln("</br></br>");
+      //creating an object of class Customer
+      var cust2 = new Customer("Toran", 26, "Pune", "8602431733", 2000)
+      // define static attribute
+      // shared value for all the objects
+      Customer.prototype.isDebitAvail = true;
+
+      // define static method
+      Customer.prototype.info = function(){
+        return this.name + " lives in " + this.address;
+      };
+      // print info
+      document.writeln(getInfo(cust2),"</br>");
+      //using info
+      document.writeln(cust2.info(),"</br>");
+
+    </script>
+  </body>
+</html>

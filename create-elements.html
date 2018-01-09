@@ -9,11 +9,19 @@
     <script>
       var para1 = document.createElement("p");
       para1.setAttribute("id", "para1");
-      para1.innerHTML = "Hello";
+      para1.innerHTML = "World";
       para1.style.backgroundColor = 'grey';
+
+      var para2 = document.createElement("p");
+      para2.setAttribute("id", "para1");
+      para2.innerHTML = "Hello";
+      para2.style.backgroundColor = 'teal';
       // need to put this para somewhere, then only it will be visible
       // so putting in div
-      document.getElementById("sampleDiv").appendChild(para1);
+      var sampleDiv = document.getElementById("sampleDiv");
+      sampleDiv.appendChild(para1);
+      // to insert at specific position
+      sampleDiv.insertBefore(para2, sampleDiv.childNodes[0])
     </script>
   </body>
 </html>
