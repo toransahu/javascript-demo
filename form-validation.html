@@ -6,8 +6,50 @@
 </head>
 <body>
     <div>
+
         Enter Your Name:
-        <input type="text" id="name" name="name" size=30>
+
+        <input type="text" id="name" name="name" size=30 onblur="validateName(this, document.getElementById('msgName'))"/>
+
+        <!-- To show validation msg -->
+        <span id="msgName"></span>
+
     </div>
+    <script type="text/javascript">
+    	function validateName(element, msgId) {
+    		// validate the name input field & show msg in span accordingly
+    		var regex = /^[a-zA-Z ]{2,30}$/;
+    		var msg = "Please enter a valid name.";
+    		validateAndUpdate(regex, element.value, msgId, msg);
+
+    	};
+
+    	function validateAndUpdate(regex, inputValue, msgId, msg){
+    		// validate any text against regex & update validation msg
+    		// if regex test fail
+    		var pass = regex.test(inputValue);
+    		if(! pass){
+    			if(msgId != null){
+    				// remove old msg contents
+    				// loop till msgId has child
+    				while(msgId.childNodes[0]){
+    					// remove each msgId child in each iteration
+    					msgId.removeChild(msgId.childNodes[0]);
+    				}
+    				// add new msg
+    				msgId.appendChild(document.createTextNode(msg));
+    			}
+    		}
+    		if(pass){
+				if(msgId != null){
+					//remove all msg
+					while(msgId.childNodes[0]){
+						// remove each msgId child in each iteration
+						msgId.removeChild(msgId.childNodes[0]);
+					}
+				}
+			}
+    	};
+    </script>
 </body>
 </html>
