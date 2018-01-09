@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Exception Handling</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var custArray = ["Toran", "Yogesh", "Shubham", "Nikhil"];
+			// this doesn't throw error in JS
+			//document.writeln(custArray[0]);
+
+			// get data at given index
+			function getData(index) {
+				// create new Error and throw it
+				if(index >= custArray.length || index < 0){
+					// throw new object of any Inbuilt Error
+					throw new RangeError("Index Out of Bound Exception");
+				}else{
+					return custArray[index];
+				}
+			};
+
+			//Exception Handling
+			try {
+			 	document.write(getData(0), "</br>");
+			 	//document.write(getData(-1));
+			 	// 1/0 = Infinity in JS
+			 	document.writeln(1/0, "</br>");
+			 	document.writeln(sqrt(4));
+			 } catch(e) {
+			 	if(e instanceof RangeError){
+			 		console.log(e);
+			 		document.write("Index should be in range. Error: ", e.message);	
+			 	}else{
+			 	document.write("Some Error Occured. Error: ", e.message);
+			 	console.log(e);
+			 	}
+			 }
+		
+
+		</script>
+		
+	</body>
+</html>	
