@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Manupulating URLs</title>
+</head>
+<body>
+
+	<button id="google">Google</button></br>
+	<button id="forward">Forward</button></br>
+	<button id="back">Back</button></br>
+	<button id="back2">Back-2</button></br>
+	<button id="reload">Reload</button></br>
+
+
+	<script type="text/javascript">
+		document.writeln("Current Path: ", window.location.pathname,"</br>");
+		document.writeln("Current Host: ", window.location.hostname, "</br>");
+		document.writeln("Current URL: ", window.location.href,"</br>");
+
+		
+		document.getElementById("google").onclick = function(event){
+			window.location.href = "http://google.com";
+		}
+		
+		document.getElementById("forward").onclick = function(event){
+			window.history.forward();
+		}
+
+		document.getElementById("back").onclick = function(event){
+			history.back();
+		}
+
+		document.getElementById("back2").onclick = function(event){
+			window.history.go(-2);
+		}
+
+		document.getElementById("reload").onclick = function(event){
+			window.location.reload();
+		}
+		
+
+	</script>
+	
+</body>

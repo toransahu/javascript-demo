@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Element Styling With JS</title>
+</head>
+<body>
+	<!--
+		URL: w3schools.com/jsref/dom_obj_style.asp
+	-->
+	<div id="sampleDiv">
+		Today we're going to learn styling DOM elements using JavaScript.
+		Today we're going to learn styling DOM elements using JavaScript.
+		Today we're going to learn styling DOM elements using JavaScript.
+		Today we're going to learn styling DOM elements using JavaScript.
+		Today we're going to learn styling DOM elements using JavaScript.
+	</div></br>
+
+	<button id="chgBkColor">Background Color</button>
+	<button id="chgBkImage">Background Image</button>
+	<button id="chgBorderStyle">Border Style</button>
+	<button id="chgBorderWidth">Border Width</button>
+	<button id="chgBorderColor">Border Color</button>
+	<button id="reset">Reset</button>
+
+	<script type="text/javascript">
+		document.getElementById("sampleDiv").style.backgroundColor = "#e2e4e5";
+
+		document.getElementById("chgBkColor").onclick = function(event){
+			document.getElementById("sampleDiv").style.backgroundColor = "teal";
+		}
+		
+		document.getElementById("chgBkImage").onclick = function(event){
+			document.getElementById("sampleDiv").style.backgroundImage = "url('favicon.jpg')";
+		}
+
+		document.getElementById("chgBorderStyle").onclick = function(event){
+			document.getElementById("sampleDiv").style.borderStyle = 'solid';
+		}
+
+		document.getElementById("chgBorderWidth").onclick = function(event){
+			document.getElementById("sampleDiv").style.borderWidth = 'thin';
+		}
+		
+		document.getElementById("chgBorderColor").onclick = function(event){
+			document.getElementById("sampleDiv").style.borderColor = 'yellow';
+		}
+
+		document.getElementById("reset").onclick = function(event){
+			document.getElementById("sampleDiv").removeAttribute('style');
+		}
+
+	</script>
+	
+</body>
