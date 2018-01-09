@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Create Elements</title>
+  <head>
+  <body>
+    <div id="sampleDiv">
+    </div>
+    <script>
+      var para1 = document.createElement("p");
+      para1.setAttribute("id", "para1");
+      para1.innerHTML = "Hello";
+      para1.style.backgroundColor = 'grey';
+      // need to put this para somewhere, then only it will be visible
+      // so putting in div
+      document.getElementById("sampleDiv").appendChild(para1);
+    </script>
+  </body>
+</html>

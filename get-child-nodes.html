@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Get Element By Tag</title>
+    <title>Get Child Nodes</title>
 </head>
 <body>
 
@@ -26,6 +26,14 @@
   		Today we're going to learn styling DOM elements using JavaScript.
     </p>
 
+    <div id="sampleDiv">
+      <em>Today we're going to learn styling DOM elements using JavaScript.</em>
+      <p>Today we're going to learn styling DOM elements using JavaScript.
+        Today we're going to learn styling DOM elements using JavaScript.
+        Today we're going to learn styling DOM elements using JavaScript.
+        Today we're going to learn styling DOM elements using JavaScript.
+      </p>
+    </div>
 
     <script type="text/javascript">
 
@@ -42,6 +50,18 @@
         var pElements = document.getElementsByTagName('p')
         // styling second para
         pElements[1].style.backgroundColor = 'teal';
+
+        //fetching second child nodes of the document
+        // i.e. HTML element
+        document.childNodes[1].style.backgroundColor = 'grey';
+        // check it by printing
+        document.writeln("document.childNodes[1] is: ",document.childNodes[1],"</br>");
+        // whereas first one is document type element
+        document.writeln("document.childNodes[0] is: ", document.childNodes[0], "</br>");
+
+        // styling childs of a div
+        document.getElementById('sampleDiv').childNodes[1].style.backgroundColor = '#E2E4E1';
+        document.writeln("Node Name: ", document.getElementById('sampleDiv').childNodes[1].nodeName,"</br>")
 
     </script>
 
